@@ -1,10 +1,11 @@
 package hospital;
 
 import consultas.Consulta;
+import usuarios.medicos.Medico;
+import usuarios.pacientes.Paciente;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import medicos.Medico;
-import pacientes.Paciente;
 
 public class ValidadorHospital {
     public boolean validarDisponibilidadEnFechaConsulta(LocalDateTime fecheDeseada, int numeroConsultorio, ArrayList<Consulta> listaConsultas) {
@@ -67,3 +68,4 @@ public class ValidadorHospital {
         return true;
     }
 }
+

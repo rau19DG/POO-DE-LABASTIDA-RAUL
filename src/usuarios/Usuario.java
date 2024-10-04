@@ -1,22 +1,26 @@
-package medicos;
+package usuarios;
+
+import usuarios.utils.Rol;
 
 import java.time.LocalDate;
 
-public class Medico {
+public class Usuario {
     public String id;
     public String nombre;
     public String apellidos;
     public LocalDate fechaNacimiento;
-    private String telefono;
-    private String rfc;
+    public String telefono;
+    private String contrasenia;
+    public Rol rol; // enumm
 
-    public Medico(String id, String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String rfc) {
+    public Usuario(String id, String nombre, String apellidos, LocalDate fechaNacimiento, String telefono, String contrasenia, Rol rol) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fechaNacimiento = fechaNacimiento;
         this.telefono = telefono;
-        this.rfc = rfc;
+        this.contrasenia = contrasenia;
+        this.rol = rol;
     }
 
     public String getId() {
@@ -39,13 +43,11 @@ public class Medico {
         return telefono;
     }
 
-    public String getRfc() {
-        return rfc;
-    }
-    public String mostrarMedico() {
-        return String.format("ID: %s  |  Nombre: %s  |  Apellido: %s  |  Fecha Nacimiento: %s  |  Num. Telefono: %s  |  Rfc: %s",
-                getId(), getNombre(), getApellidos(), getFechaNacimiento(), getTelefono(), getRfc());
+    protected String getContrasenia() {
+        return contrasenia;
     }
 
-
+    public Rol getRol() {
+        return rol;
+    }
 }
