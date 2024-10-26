@@ -1,9 +1,11 @@
 package consultas;
 
+import consultas.utils.Status;
 import consultorios.Consultorio;
-import medicos.Medico;
-import pacientes.Paciente;
+import usuarios.medicos.Medico;
+import usuarios.pacientes.Paciente;
 
+import javax.swing.plaf.PanelUI;
 import java.time.LocalDateTime;
 
 public class Consulta {
@@ -12,6 +14,7 @@ public class Consulta {
     public Paciente paciente;
     public Medico medico;
     public Consultorio consultorio;
+    public Status status;
 
     public Consulta(String id, LocalDateTime fechaHora, Paciente paciente, Medico medico, Consultorio consultorio) {
         this.id = id;
@@ -19,6 +22,7 @@ public class Consulta {
         this.paciente = paciente;
         this.medico = medico;
         this.consultorio = consultorio;
+        this.status = Status.PENDIENTE;
     }
 
     public String getId() {
@@ -38,6 +42,14 @@ public class Consulta {
     }
 
     public Consultorio getConsultorio() { return consultorio; }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public String mostrarDatos() {
         return String.format("Id: %s  |  Fecha: %s  |  Id Paciente: %s  |  Paciente: %s  |  Id Medico: %s  |  Médico: %s  |  Piso Consultorio: %d  |  Numero Consultorio: %d",
